@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload File</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      main {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      div {
+        border: 3px solid black;
+        width: 48%;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>Upload File CSV atau Excel</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="file" accept=".csv, .xls, .xlsx" />
+          <input type="submit" value="Unggah" />
+        </form>
+      </div>
+      <div>
+        <h1>Visualisasi</h1>
+      </div>
+    </main>
+  </body>
+</html>

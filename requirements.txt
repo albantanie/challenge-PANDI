@@ -1,0 +1,6 @@
+Streamlit
+Flask
+Pandas
+Numpy
+Matplotlib
+Seaborn
