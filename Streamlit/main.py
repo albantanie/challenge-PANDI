@@ -20,15 +20,20 @@ if file is not None:
             st.stop() 
             
         st.write(df)
-        st.bar_chart(df['Ticket Tipe'].value_counts())
-        fig, ax = plt.subplots()
-        df['Ticket Tipe'].value_counts().plot.pie(autopct='%1.1f%%', ax=ax)
-        st.pyplot(fig)
 
-        status_options = df['Ticket Tipe'].unique()
-        selected_statuses = st.sidebar.multiselect('Pilih Status Tiket', status_options, default=status_options)
-        df_filtered = df[df['Ticket Tipe'].isin(selected_statuses)]
-        st.table(df_filtered)
+        option = st.selectbox(
+        'Select Column',
+        (df.columns))
+
+        st.bar_chart(df[option].value_counts())
+
+        fileter_unique = st.multiselect(
+            'Select filter',
+            df[option].unique(),
+            [])
+        
+        df_filtered = df[df[option].isin(fileter_unique)]
+        st.write(df_filtered)
 
     except Exception as e:
         st.error(f"Terjadi kesalahan saat membaca file: {str(e)}")
