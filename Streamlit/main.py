@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
 # Judul aplikasi
 st.title('Impor Data dari CSV atau XLS')
 
@@ -14,11 +13,10 @@ if file is not None:
         if file.name.endswith('csv'):
             df = pd.read_csv(file)
         elif file.name.endswith(('xls', 'xlsx')):
-            df = pd.read_excel(file)    
+            df = pd.read_excel(file)
         else:
             st.error("Format file tidak didukung.")
-            st.stop() 
-            
+            st.stop()
         st.write(df)
 
         option = st.selectbox(
@@ -37,3 +35,4 @@ if file is not None:
 
     except Exception as e:
         st.error(f"Terjadi kesalahan saat membaca file: {str(e)}")
+
