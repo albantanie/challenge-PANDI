@@ -18,21 +18,20 @@ if file is not None:
             st.error("Format file tidak didukung.")
             st.stop()
         st.write(df)
-        st.bar_chart(df['Ticket Tipe'].value_counts())
-        fig, ax = plt.subplots()
-        df['Ticket Tipe'].value_counts().plot.pie(autopct='%1.1f%%', ax=ax)
-        st.pyplot(fig)
 
-        options = st.multiselect(
-            'What are your favorite colors',
-            df['Ticket Tipe'].unique(),
+        option = st.selectbox(
+        'Select Column',
+        (df.columns))
+
+        st.bar_chart(df[option].value_counts())
+
+        fileter_unique = st.multiselect(
+            'Select filter',
+            df[option].unique(),
             [])
-        df_filtered = df[df['Ticket Tipe'].isin(options)]
+        
+        df_filtered = df[df[option].isin(fileter_unique)]
         st.write(df_filtered)
-        fig, ax = plt.subplots()
-        df_filtered['Ticket Tipe'].value_counts().plot.pie(autopct='%1.1f%%', ax=ax)
-        st.pyplot(fig)
-
 
     except Exception as e:
         st.error(f"Terjadi kesalahan saat membaca file: {str(e)}")
