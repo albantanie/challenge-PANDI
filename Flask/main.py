@@ -49,6 +49,8 @@ def plot_pie_chart(df):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     bar_chart = None
+    pie_chart = None
+    # df_table = None  # Initialize df_table here
     if request.method == 'POST':
         file = request.files['file']
         if not file:
@@ -57,17 +59,19 @@ def index():
         # Baca file dengan pandas
         if file.filename.endswith('csv'):
             df = pd.read_csv(file)
+            # df_table = df.to_html(classes='data', header="true")
             bar_chart = plot_bar_chart(df)
             pie_chart = plot_pie_chart(df)
         elif file.filename.endswith(('xls', 'xlsx')):
             df = pd.read_excel(file)
+            # df_table = df.to_html(classes='data', header="true")
             bar_chart = plot_bar_chart(df)
             pie_chart = plot_pie_chart(df)    
         else:
             return "Unsupported file format"
     
-    
     return render_template('index.html', bar_chart=bar_chart, pie_chart=pie_chart)
+
 
 
 if __name__ == '__main__':
