@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge PANDI</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 5px;
+        max-width: 100vw;
+      }
+      div {
+        border: 1px solid black;
+        text-align: center;
+        margin: 10px;
+      }
+      img {
+        width: 375px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        {% if pie_chart3 %}
+        <img src="data:image/png;base64,{{ pie_chart3 }}" alt="Pie Chart3" />
+        {% endif %}
+      </div>
+      <div>
+        {% if pie_chart2 %}
+        <img src="data:image/png;base64,{{ pie_chart2 }}" alt="Pie Chart2" />
+        {% endif %}
+      </div>
+      <div>
+        {% if pie_chart4 %}
+        <img src="data:image/png;base64,{{ pie_chart4 }}" alt="Pie Chart4" />
+        {% endif %}
+      </div>
+      <div>
+        {% if bar_chart %}
+        <img src="data:image/png;base64,{{ bar_chart }}" alt="Bar Chart" />
+        {% endif %}
+      </div>
+      <div>
+        {% if pie_chart %}
+        <img src="data:image/png;base64,{{ pie_chart }}" alt="Pie Chart" />
+        {% endif %}
+      </div>
+    </main>
+  </body>
+</html>

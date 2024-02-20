@@ -10,55 +10,20 @@
         padding: 0px;
       }
       main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         padding: 5px;
         max-width: 100vw;
-      }
-      div {
-        border: 3px solid black;
         text-align: center;
-        padding: 5px;
-        margin: 5px;
-      }
-      img {
-        width: 375px;
       }
     </style>
   </head>
   <body>
     <main>
+      <h2>Upload File CSV atau Excel</h2>
       <div>
-        <div>
-          <h3>Upload File CSV atau Excel</h3>
-          <form action="/" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".csv, .xls, .xlsx" />
-            <input type="submit" value="Unggah" />
-          </form>
-        </div>
-        <div>
-          <h3>Filter</h3>
-        </div>
-      </div>
-
-      <div>
-        <div>
-          <h3>Table</h3>
-          <!-- <div style="width: 500px; height: 400px; overflow: scroll;">{% if df_table %} {{ df_table | safe }} {% endif %}</div> -->
-        </div>
-        <div style="display: flex">
-          <div>
-            {% if bar_chart %}
-            <img src="data:image/png;base64,{{ bar_chart }}" alt="Bar Chart" />
-            {% endif %}
-          </div>
-          <div>
-            {% if pie_chart %}
-            <img src="data:image/png;base64,{{ pie_chart }}" alt="Pie Chart" />
-            {% endif %}
-          </div>
-        </div>
+        <form action="/dashboard" method="post" enctype="multipart/form-data">
+          <input type="file" name="file" accept=".csv, .xls, .xlsx" />
+          <input type="submit" value="Unggah" />
+        </form>
       </div>
     </main>
   </body>
